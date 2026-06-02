@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zenithy - Web Design & Graphic</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Mitr:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg-main: #ffe6f0; --paper: #ffffff; --text-dark: #8a516b; --text-light: #bd859b; --accent-pink: #eb7aa6; --accent-yellow: #fcf2b6; --mint: #a2dcd4; --peach: #ffc2b3; --sky: #b8e9ed; --line-color: rgba(235, 122, 166, 0.2); }
+        body { background-color: var(--bg-main); background-image: repeating-linear-gradient(to right, #ffe6f0, #ffe6f0 40px, #ffdbee 40px, #ffdbee 80px); font-family: 'Mitr', sans-serif; color: var(--text-dark); overflow-x: hidden; }
+        .font-fredoka { font-family: 'Fredoka', sans-serif; }
+        .paper-container { background-color: var(--paper); position: relative; background-image: repeating-linear-gradient(to bottom, transparent, transparent 35px, var(--line-color) 35px, var(--line-color) 36px); background-position: top 40px center; box-shadow: 0 15px 35px rgba(0,0,0,0.08); }
+        .jagged-top { position: absolute; top: -12px; left: 0; width: 100%; height: 13px; background: linear-gradient(-45deg, transparent 9px, var(--paper) 0), linear-gradient(45deg, transparent 9px, var(--paper) 0); background-size: 18px 18px; background-repeat: repeat-x; }
+        .jagged-bottom { position: absolute; bottom: -12px; left: 0; width: 100%; height: 13px; background: linear-gradient(-45deg, var(--paper) 9px, transparent 0), linear-gradient(45deg, var(--paper) 9px, transparent 0); background-size: 18px 18px; background-repeat: repeat-x; }
+        .polaroid { background: #fff; padding: 8px 8px 35px 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid #f5e6e6; position: relative; }
+        .tape { position: absolute; mix-blend-mode: multiply; opacity: 0.85; z-index: 20; }
+        .tape-1 { clip-path: polygon(1% 2%, 99% 0%, 98% 98%, 0% 100%); }
+        .tape-2 { clip-path: polygon(0% 0%, 100% 1%, 99% 100%, 2% 99%); }
+        .tape-3 { clip-path: polygon(2% 1%, 98% 2%, 100% 99%, 0% 98%); }
+        .bg-tape-pink { background-color: #ffb6c1; }
+        .bg-tape-yellow { background-color: #fdf096; }
+        .bg-tape-mint { background-color: #aee6e6; }
+        @keyframes float-anim { 0%, 100% { transform: translateY(0) scale(1) rotate(var(--rot, 0deg)); } 50% { transform: translateY(-6px) scale(1.05) rotate(calc(var(--rot, 0deg) + 5deg)); } }
+        .decor-float { animation: float-anim 3.5s ease-in-out infinite; pointer-events: none; }
+        .dotted-leader { flex-grow: 1; border-bottom: 2px dotted var(--text-light); margin: 0 8px; opacity: 0.3; transform: translateY(-4px); }
+        .modal-overlay { background-color: rgba(138, 81, 107, 0.4); backdrop-filter: blur(4px); }
+        .portfolio-card { cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .portfolio-card:hover { transform: translateY(-5px); }
+        .link-item { display: block; width: 100%; padding: 12px; margin-bottom: 8px; background: white; border-radius: 12px; border: 1.5px solid var(--line-color); color: var(--text-dark); font-size: 0.85rem; transition: all 0.2s; text-align: center; font-weight: 500; }
+    </style>
+</head>
+<body class="min-h-screen py-10 px-4 relative selection:bg-[#fcf2b6] selection:text-[#8a516b]">
+    <div class="max-w-5xl mx-auto flex flex-col gap-12 items-center w-full">
+        <div class="w-full flex flex-row justify-between items-stretch gap-10 mt-6 relative z-20 px-4">
+            <div class="relative flex-[1.6] flex flex-col">
+                <div class="bg-white relative z-10 p-10 rounded-md shadow-sm border border-gray-100 flex-1">
+                    <h2 class="font-fredoka text-[#8a516b] font-bold text-3xl uppercase">ZENITHY</h2>
+                    <p class="mt-3 text-[#8a516b] font-medium leading-tight">รับทำเว็บไซต์ร้าน / เติมเกม identity v / ทำป้ายต่าง ๆ open 9:00-23:00 น.🩵</p>
+                </div>
+            </div>
+            <div class="relative flex-1 flex flex-col items-center shrink-0">
+                <div class="polaroid transform rotate-[-3deg] w-48">
+                    <img src="IMG_1821.jpeg" alt="Zenithy Logo" class="w-full h-48 object-cover">
+                    <div class="absolute bottom-2 right-4 bg-[#8a516b] text-white px-4 py-1 text-[9px] font-fredoka font-bold rounded-l-md uppercase">Zenithy Shop</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="paper-container w-full rounded-sm pt-16 pb-20 px-10 z-10 relative">
+            <div class="jagged-top"></div>
+            <div class="jagged-bottom"></div>
+
+            <div class="space-y-12">
+                <div class="flex">
+                    <div class="w-12 font-fredoka text-[#eb7aa6] font-bold text-2xl">01.</div>
+                    <div class="flex-1">
+                        <h2 class="font-fredoka text-[#8a516b] font-bold text-xl uppercase mb-6">Service Info</h2>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div onclick="openModal('modal-web')" class="portfolio-card bg-white p-6 rounded-2xl border-2 border-[#f2adcc] text-center font-bold text-[#8a516b]">ทำเว็บไซต์ร้าน (เริ่ม 129.-)</div>
+                            <div onclick="openModal('modal-sign')" class="portfolio-card bg-white p-6 rounded-2xl border-2 border-[#a2dcd4] text-center font-bold text-[#8a516b]">ทำป้าย (เริ่ม 50.-)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex">
+                    <div class="w-12 font-fredoka text-[#eb7aa6] font-bold text-2xl">02.</div>
+                    <div class="flex-1 bg-[#fffdf0] p-8 rounded-2xl border-2 border-[#fceb9a]">
+                        <h2 class="font-fredoka text-[#8a516b] font-bold text-xl uppercase mb-4">Pricing & Details</h2>
+                        <ul class="space-y-2 text-[#8a516b] text-sm">
+                            <li>• <b>เว็บไซต์:</b> มีเทมเพลต 50+ (น่ารัก/พาสเทล/มืด) รองาน 4-8 ชม.</li>
+                            <li>• <b>งานป้าย:</b> บรีฟโทนสี/ตัวละครได้ รองาน 1-2 วัน (งานเร่ง +10฿)</li>
+                            <li>• <b>ลิงก์ดูงาน:</b> <a href="https://drive.google.com/drive/folders/1_XMpP9EC2Yqq2-6cYfRn0fy8i9Q6cvoi" class="underline font-bold">ตัวอย่างงานป้าย</a> / <a href="https://drive.google.com/drive/mobile/folders/1fj024BhkgC1ctJeiwyZUG3USteSdzWzr" class="underline font-bold">เทมเพลต</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="flex">
+                    <div class="w-12 font-fredoka text-[#eb7aa6] font-bold text-2xl">03.</div>
+                    <div class="flex-1 bg-[#fff5f2] p-8 rounded-2xl border-2 border-[#ffc2b3]">
+                        <h2 class="font-fredoka text-[#8a516b] font-bold text-xl uppercase mb-4">Shop Rules</h2>
+                        <ul class="list-disc pl-5 space-y-1 text-sm text-[#d97762]">
+                            <li>โอนเงินแล้วไม่คืนเงินทุกกรณี</li>
+                            <li>แจ้งไอดีผิด ไม่รับผิดชอบทุกกรณี</li>
+                            <li>ผ่อนชำระไม่ต่อเนื่องยึดยอดทันที</li>
+                            <li>งานป้ายยกเลิกไม่คืนเงิน</li>
+                            <li>แก้ไขงานหลังเช็คแล้ว/เปลี่ยนข้อมูลเว็บ คิดจุดละ 20฿</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="flex">
+                    <div class="w-12 font-fredoka text-[#eb7aa6] font-bold text-2xl">04.</div>
+                    <div class="flex-1 flex gap-4">
+                        <a href="https://www.facebook.com/profile.php?id=61554192600355" class="bg-[#8a516b] text-white px-8 py-3 rounded-full font-bold">Facebook</a>
+                        <a href="https://line.me/ti/p/LfBtdhlrVa" class="bg-white border-2 border-[#8a516b] text-[#8a516b] px-8 py-3 rounded-full font-bold">Line</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-web" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4 modal-overlay" onclick="closeModal('modal-web')">
+        <div class="bg-white p-8 rounded-3xl w-full max-w-sm border-2 border-[#f2adcc]" onclick="event.stopPropagation()">
+            <h3 class="font-bold text-xl text-[#8a516b] mb-4">รายละเอียดเว็บไซต์</h3>
+            <p class="text-sm">เริ่มต้น 129.- มีเทมเพลตมากกว่า 50 แบบให้เลือก ทั้งแนวน่ารัก พาสเทล และแนวมืด รองาน 4-8 ชั่วโมง</p>
+            <button onclick="closeModal('modal-web')" class="mt-6 w-full py-2 bg-[#8a516b] text-white rounded-xl">ปิด</button>
+        </div>
+    </div>
+    <div id="modal-sign" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4 modal-overlay" onclick="closeModal('modal-sign')">
+        <div class="bg-white p-8 rounded-3xl w-full max-w-sm border-2 border-[#a2dcd4]" onclick="event.stopPropagation()">
+            <h3 class="font-bold text-xl text-[#8a516b] mb-4">รายละเอียดงานป้าย</h3>
+            <p class="text-sm">เริ่มต้น 50.- มีบล็อกให้เลือก บรีฟตัวละครและโทนสีได้ รองาน 1-2 วัน (งานเร่ง +10฿)</p>
+            <button onclick="closeModal('modal-sign')" class="mt-6 w-full py-2 bg-[#8a516b] text-white rounded-xl">ปิด</button>
+        </div>
+    </div>
+
+    <script>
+        function openModal(id) { document.getElementById(id).classList.remove('hidden'); }
+        function closeModal(id) { document.getElementById(id).classList.add('hidden'); }
+    </script>
+</body>
+</html>

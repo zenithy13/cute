@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zenithy - Web Design & Graphic</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Mitr:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #ffe6f0;
+            --paper: #ffffff;
+            --text-dark: #8a516b;
+            --text-light: #bd859b;
+            --accent-pink: #eb7aa6;
+            --accent-yellow: #fcf2b6;
+            --mint: #a2dcd4;
+            --peach: #ffc2b3;
+            --sky: #b8e9ed;
+            --line-color: rgba(235, 122, 166, 0.2);
+        }
+        body { background-color: var(--bg-main); background-image: repeating-linear-gradient(to right, #ffe6f0, #ffe6f0 40px, #ffdbee 40px, #ffdbee 80px); font-family: 'Mitr', sans-serif; color: var(--text-dark); overflow-x: hidden; }
+        .font-fredoka { font-family: 'Fredoka', sans-serif; }
+        .paper-container { background-color: var(--paper); position: relative; background-image: repeating-linear-gradient(to bottom, transparent, transparent 35px, var(--line-color) 35px, var(--line-color) 36px); background-position: top 40px center; box-shadow: 0 15px 35px rgba(0,0,0,0.08); }
+        .jagged-top { position: absolute; top: -12px; left: 0; width: 100%; height: 13px; background: linear-gradient(-45deg, transparent 9px, var(--paper) 0), linear-gradient(45deg, transparent 9px, var(--paper) 0); background-size: 18px 18px; background-repeat: repeat-x; }
+        .jagged-bottom { position: absolute; bottom: -12px; left: 0; width: 100%; height: 13px; background: linear-gradient(-45deg, var(--paper) 9px, transparent 0), linear-gradient(45deg, var(--paper) 9px, transparent 0); background-size: 18px 18px; background-repeat: repeat-x; }
+        .polaroid { background: #fff; padding: 8px 8px 35px 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid #f5e6e6; position: relative; }
+        @media (min-width: 640px) { .polaroid { padding: 10px 10px 45px 10px; } }
+        .tape { position: absolute; mix-blend-mode: multiply; opacity: 0.85; z-index: 20; }
+        .tape-1 { clip-path: polygon(1% 2%, 99% 0%, 98% 98%, 0% 100%); }
+        .tape-2 { clip-path: polygon(0% 0%, 100% 1%, 99% 100%, 2% 99%); }
+        .tape-3 { clip-path: polygon(2% 1%, 98% 2%, 100% 99%, 0% 98%); }
+        .bg-tape-pink { background-color: #ffb6c1; }
+        .bg-tape-yellow { background-color: #fdf096; }
+        .bg-tape-mint { background-color: #aee6e6; }
+        .bg-tape-blue { background-color: #bce3f2; }
+        @keyframes float-anim { 0%, 100% { transform: translateY(0) scale(1) rotate(var(--rot, 0deg)); } 50% { transform: translateY(-6px) scale(1.05) rotate(calc(var(--rot, 0deg) + 5deg)); } }
+        .decor-float { animation: float-anim 3.5s ease-in-out infinite; pointer-events: none; }
+        .delay-1 { animation-delay: 0.5s; }
+        .delay-2 { animation-delay: 1.5s; }
+        .dotted-leader { flex-grow: 1; border-bottom: 2px dotted var(--text-light); margin: 0 8px; opacity: 0.3; transform: translateY(-4px); }
+        .modal-overlay { background-color: rgba(138, 81, 107, 0.4); backdrop-filter: blur(4px); }
+        .portfolio-card { cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .portfolio-card:hover { transform: translateY(-5px); }
+        .link-item { display: block; width: 100%; padding: 12px; margin-bottom: 8px; background: white; border-radius: 12px; border: 1.5px solid var(--line-color); color: var(--text-dark); font-size: 0.85rem; transition: all 0.2s; text-align: center; font-weight: 500; }
+        .link-item:hover { background: var(--bg-main); border-color: var(--accent-pink); }
+    </style>
+</head>
+<body class="min-h-screen py-6 sm:py-10 px-2 sm:px-4 md:px-8 relative selection:bg-[#fcf2b6] selection:text-[#8a516b]">
+    <!-- Global Decorations -->
+    <svg class="decor-float delay-2 fixed top-10 left-5 w-10 h-10 text-[#a2dcd4] opacity-40 z-0" style="--rot: -12deg;" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+    <div class="max-w-5xl mx-auto flex flex-col gap-8 sm:gap-12 items-center w-full">
+       
+        <!-- HEADER HERO SECTION -->
+        <div class="w-full flex flex-row justify-between items-stretch gap-2 sm:gap-10 mt-2 sm:mt-6 relative z-20 px-1 sm:px-4">
+            <div class="relative flex-[1.6] sm:flex-1 flex flex-col">
+                <div class="absolute inset-0 bg-[#f5a9cb] transform rotate-[-1deg] translate-x-[-4px] translate-y-[6px] sm:translate-x-[-8px] sm:translate-y-[12px] opacity-80 z-0 rounded-md"></div>
+                <div class="bg-white relative z-10 p-3 sm:p-10 transform rotate-[-0.5deg] rounded-md shadow-sm border border-gray-100/50 flex-1 flex flex-col justify-center">
+                    <div class="tape bg-tape-pink tape-1 -top-4 left-1/2 transform -translate-x-1/2 rotate-1 w-24 sm:w-32 h-6 sm:h-8"></div>
+                    <svg class="decor-float absolute top-4 sm:top-8 right-4 sm:right-8 w-4 sm:w-6 h-4 sm:h-6 text-[#ffc2b3] opacity-80 z-20" style="--rot: 15deg;" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                    <div class="space-y-2 sm:space-y-6 pt-2">
+                        <div>
+                            <h2 class="font-fredoka text-[#8a516b] font-bold text-[12px] sm:text-3xl uppercase tracking-tight leading-none">ZENITHY SERVICES</h2>
+                            <p class="mt-1 sm:mt-3 text-[#8a516b] text-[9px] sm:text-base font-medium leading-tight">
+                                zenithy รับทำเว็บไซต์ร้าน / เติมเกมidentity v / ทำป้ายต่าง ๆ open 9:00-23:00 น.🩵
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="relative flex-1 flex flex-col items-center shrink-0 pt-2">
+                <div class="relative bg-white border border-[#eb7aa6] sm:border-2 rounded-full px-2 sm:px-5 py-0.5 sm:py-1.5 mb-2 sm:mb-4 z-30 transform rotate-2 shadow-sm">
+                    <span class="font-fredoka text-[#eb7aa6] text-[7px] sm:text-[11px] font-bold tracking-wide uppercase">ZENITHY</span>
+                </div>
+                <div class="polaroid transform rotate-[-3deg] w-full max-w-[110px] sm:max-w-[240px] z-10 border border-white sm:border-2">
+                    <div class="tape bg-tape-mint tape-2 -top-3 left-1/2 transform -translate-x-1/2 rotate-2 w-12 sm:w-20 h-4 sm:h-6"></div>
+                    <div class="w-full aspect-[4/5] bg-[#fff9eb] overflow-hidden rounded-sm relative border border-[#f5e687]/30">
+                        <img src="IMG_1821.jpeg" alt="Zenithy Logo" class="w-full h-full object-cover">
+                    </div>
+                    <div class="absolute bottom-1 sm:bottom-3 right-0 bg-[#8a516b] text-white px-2 sm:px-4 py-0.5 sm:py-1.5 text-[5px] sm:text-[9px] font-fredoka font-bold rounded-l-md tracking-tighter sm:tracking-widest shadow-md">
+                        WELCOME TO ZENITHY
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MAIN CONTENT (BOTTOM NOTEBOOK) -->
+        <div class="paper-container w-full rounded-sm pt-12 sm:pt-16 pb-16 sm:pb-20 px-4 sm:px-10 lg:px-16 z-10 relative mt-6 sm:mt-10">
+            <div class="jagged-top"></div>
+            <div class="jagged-bottom"></div>
+            <div class="tape bg-tape-yellow tape-2 -top-3 -left-4 transform -rotate-3 w-24 sm:w-36 h-6 sm:h-8 z-20"></div>
+            
+            <div class="space-y-12">
+                <!-- Services Sections... (rest of the content) -->
+            </div>
+        </div>
+    </div>
+</body>
+</html>
